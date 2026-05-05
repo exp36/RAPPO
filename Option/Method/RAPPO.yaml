@@ -1,0 +1,76 @@
+use_entities_vdb: True
+use_relations_vdb: False
+llm_model_max_token_size: 32768
+use_entity_link_chunk: True
+enable_graph_augmentation: True
+
+index_name: rappo_graph
+
+vdb_type: faiss
+
+chunk:
+  chunk_token_size: 1200
+  chunk_overlap_token_size: 100
+  token_model: gpt-3.5-turbo
+  chunk_method: chunking_by_token_size
+
+graph:
+    enable_edge_keywords: False
+    graph_type: rappo_graph
+    force: False
+
+    extract_two_step: True
+    max_gleaning: 1
+    enable_entity_description: False
+    enable_entity_type: False
+    enable_edge_description: False
+    enable_edge_name: True
+    prior_prob: 0.8
+    similarity_max: 1.0
+
+    rappo_tree_graph_type: tree_graph
+    rappo_representative_chunks_per_cluster: 1
+    build_tree_from_leaves: False
+    reduction_dimension: 10
+    summarization_length: 100
+    num_layers: 5
+    top_k: 5
+    start_layer: 5
+    selection_mode: top_k
+    max_length_in_cluster: 3500
+    threshold: 0.1
+    cluster_metric: cosine
+    verbose: False
+    random_seed: 224
+    threshold_cluster_num: 5000
+    enforce_sub_communities: False
+    max_size_percentage: 0.2
+    tol: 1e-4
+    max_iter: 10
+    size_of_clusters: 10
+
+retriever:
+    query_type: rappo_ppr
+    enable_local: False
+    use_entity_similarity_for_ppr: False
+    top_k_entity_for_ppr: 8
+    node_specificity: True
+    damping: 0.1
+    top_k: 3
+
+query:
+    query_type: qa
+    only_need_context: False
+    enable_hybrid_query: True
+    augmentation_ppr: False
+    level: 2
+    community_information: True
+    num_doc: 3
+    retrieve_top_k: 20
+    naive_max_token_for_text_unit: 12000
+    local_max_token_for_text_unit: 4000
+    max_token_for_text_unit: 4000
+    entities_max_tokens: 2000
+    relationships_max_tokens: 2000
+    max_ir_steps: 2
+    rappo_tree_top_k: 2
