@@ -1,3 +1,5 @@
+# This is a modified version of the GraphRAG Framework "Digimon" that incorporates a hybridized version of RAPTOR and HippoRAG nicknamed "RAPPO"
+## The original framework can be found here: https://github.com/JayLZhou/GraphRAG#
 # Experiment Setup
 
 This README explains how to install dependencies, activate the conda environment, and configure the experiment for your local LLM and embedding model.
@@ -58,3 +60,16 @@ The following fields are machine-specific and may need to be changed before runn
 | `cache_folder` | Local HuggingFace cache directory |
 | `device` | GPU device to use for embeddings, for example `cuda:0` |
 | `data_root` | Path to the dataset directory on your machine |
+
+## 5. Run a Specific Method
+
+```bash
+python main.py -opt Option/Method/<METHOD>.yaml -dataset_name your_dataset
+```
+For example, 
+```bash
+python main.py -opt Option/Method/RAPPO.yaml -dataset_name multihop-rag
+```
+
+
+(See the original Github linked above for more detailed instructions)
