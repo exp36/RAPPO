@@ -73,3 +73,4 @@ python main.py -opt Option/Method/RAPPO.yaml -dataset_name multihop-rag
 
 
 (See the original Github linked above for more detailed instructions)
+-- Note: The artifacts folder is unnecessary to reproducing the experiment, and they simply show past logs of experiments.
